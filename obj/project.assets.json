@@ -4066,11 +4066,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shlok\\Documents\\Projects\\Inventory-Management\\Inventory-Management.csproj",
+      "projectUniqueName": "C:\\Users\\shlok\\Documents\\Projects\\Inventory-Management-Backend\\Inventory-Management.csproj",
       "projectName": "Inventory-Management",
-      "projectPath": "C:\\Users\\shlok\\Documents\\Projects\\Inventory-Management\\Inventory-Management.csproj",
+      "projectPath": "C:\\Users\\shlok\\Documents\\Projects\\Inventory-Management-Backend\\Inventory-Management.csproj",
       "packagesPath": "C:\\Users\\shlok\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shlok\\Documents\\Projects\\Inventory-Management\\obj\\",
+      "outputPath": "C:\\Users\\shlok\\Documents\\Projects\\Inventory-Management-Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\shlok\\AppData\\Roaming\\NuGet\\NuGet.Config"

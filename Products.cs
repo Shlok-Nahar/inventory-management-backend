@@ -6,6 +6,7 @@ namespace InventoryManagement
         public string Name { get; set; } = "";
         public int? SupplierID { get; set; }
         public int? CustomerID { get; set; }
+        public int? Stock { get; set; } 
 
         public Suppliers Supplier { get; set; } = new Suppliers();
         public Customers Customer { get; set; } = new Customers();
