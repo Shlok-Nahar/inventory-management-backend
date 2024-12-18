@@ -1,15 +1,11 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace InventoryManagement
 {
     public class Customers
     {
-        [Key]
-        public int CustomerID { get; set; }
-        
-        [Required]
-        [MaxLength(100)]
+        public int CustomerID { get; set; }  // Primary key
         public string Name { get; set; }
-        public string ContactInfo { get; set; }
+        public string? ContactInfo { get; set; }
+        
+        public ICollection<Products> Products { get; set; } 
     }
 }

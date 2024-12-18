@@ -1,21 +1,15 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace InventoryManagement
 {
     public class Products
     {
-        [Key]
-        public int ProductID { get; set; }
-
-        [Required]
-        [MaxLength(100)]
+        public int ProductID { get; set; }  // Primary key
         public string Name { get; set; }
+        public int? SupplierID { get; set; }
+        public int? CustomerID { get; set; }
 
-        public decimal Price { get; set; }
+        public Suppliers Supplier { get; set; }
+        public Customers Customer { get; set; }
 
-        public int StockLevel { get; set; }
-
-        public int SupplierID { get; set; }
-        public Suppliers Suppliers { get; set; }
+        public ICollection<Transactions> Transactions { get; set; } = new List<Transactions>();
     }
 }

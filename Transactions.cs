@@ -1,25 +1,13 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace InventoryManagement
 {
     public class Transactions
     {
-        [Key]
-        public int TransactionID { get; set; }
-
+        public int TransactionID { get; set; }  // Primary key
         public int ProductID { get; set; }
-        public Products Product { get; set; }
-
-        public TransactionType Type { get; set; }
-
+        public string Type { get; set; }
         public int Quantity { get; set; }
-
         public DateTime Date { get; set; }
-    }
 
-    public enum TransactionType
-    {
-        Sale,
-        Purchase
+        public Products Product { get; set; }
     }
 }
