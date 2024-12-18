@@ -4,10 +4,10 @@ namespace InventoryManagement
 {
     public class InventoryDbContext : DbContext
     {
-        public DbSet<Products> Products { get; set; }
-        public DbSet<Suppliers> Suppliers { get; set; }
-        public DbSet<Customers> Customers { get; set; }
-        public DbSet<Transactions> Transactions { get; set; }
+        public DbSet<Products> Products { get; set; } = null!;
+        public DbSet<Suppliers> Suppliers { get; set; } = null!;
+        public DbSet<Customers> Customers { get; set; } = null!;
+        public DbSet<Transactions> Transactions { get; set; } = null!;
 
         public InventoryDbContext(DbContextOptions<InventoryDbContext> options) : base(options) { }
 
