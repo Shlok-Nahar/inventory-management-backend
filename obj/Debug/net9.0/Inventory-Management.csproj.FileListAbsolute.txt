@@ -250,3 +250,8 @@ C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\obj\Debug\net9.0\
 C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\obj\Debug\net9.0\Inventory-Management.pdb
 C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\obj\Debug\net9.0\Inventory-Management.genruntimeconfig.cache
 C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\obj\Debug\net9.0\ref\Inventory-Management.dll
+C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\bin\Debug\net9.0\InventoryAPI\appsettings.Development.json
+C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\bin\Debug\net9.0\InventoryAPI\appsettings.json
+C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\bin\Debug\net9.0\InventoryAPI\obj\InventoryAPI.csproj.nuget.dgspec.json
+C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\bin\Debug\net9.0\InventoryAPI\obj\project.assets.json
+C:\Users\shlok\Documents\Projects\Inventory-Management-Backend\bin\Debug\net9.0\InventoryAPI\Properties\launchSettings.json
