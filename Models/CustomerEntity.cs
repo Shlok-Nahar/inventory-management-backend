@@ -6,6 +6,7 @@ namespace InventoryManagement
     {
         [Key]
         public int customerID { get; set; }
+        [Required]
         public string customerName { get; set; } = "";
         public string? contactInfo { get; set; }
         

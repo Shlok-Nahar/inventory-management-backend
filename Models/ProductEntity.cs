@@ -7,6 +7,7 @@ namespace InventoryManagement
     {
         [Key]
         public int productID { get; set; }
+        [Required]
         public string productName { get; set; } = "";
 
         [ForeignKey("SupplierEntity")]
