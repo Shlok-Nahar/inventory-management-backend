@@ -4,6 +4,7 @@ using InventoryManagement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Inventory_Management.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    partial class InventoryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241219204334_AddPriceToDB")]
+    partial class AddPriceToDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,27 +36,13 @@ namespace Inventory_Management.Migrations
                     b.Property<string>("contactInfo")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("customerName")
+                    b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("customerID");
 
                     b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            customerID = 1,
-                            contactInfo = "123-456-7890",
-                            customerName = "Customer A"
-                        },
-                        new
-                        {
-                            customerID = 2,
-                            contactInfo = "",
-                            customerName = "Customer B"
-                        });
                 });
 
             modelBuilder.Entity("InventoryManagement.ProductEntity", b =>
@@ -74,7 +63,7 @@ namespace Inventory_Management.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("stock")
+                    b.Property<int>("stock")
                         .HasColumnType("int");
 
                     b.Property<int?>("supplierID")
@@ -87,31 +76,6 @@ namespace Inventory_Management.Migrations
                     b.HasIndex("supplierID");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            productID = 1,
-                            price = 10.99f,
-                            productName = "Product A",
-                            stock = 100,
-                            supplierID = 1
-                        },
-                        new
-                        {
-                            productID = 2,
-                            price = 20.49f,
-                            productName = "Product B",
-                            stock = 50
-                        },
-                        new
-                        {
-                            productID = 3,
-                            customerID = 2,
-                            price = 15.99f,
-                            productName = "Product C",
-                            stock = 75
-                        });
                 });
 
             modelBuilder.Entity("InventoryManagement.SupplierEntity", b =>
@@ -125,27 +89,13 @@ namespace Inventory_Management.Migrations
                     b.Property<string>("contactInfo")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("supplierName")
+                    b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("supplierID");
 
                     b.ToTable("Suppliers");
-
-                    b.HasData(
-                        new
-                        {
-                            supplierID = 1,
-                            contactInfo = "987-654-3210",
-                            supplierName = "Supplier A"
-                        },
-                        new
-                        {
-                            supplierID = 2,
-                            contactInfo = "",
-                            supplierName = "Supplier B"
-                        });
                 });
 
             modelBuilder.Entity("InventoryManagement.TransactionEntity", b =>
@@ -156,14 +106,14 @@ namespace Inventory_Management.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("transactionID"));
 
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<int>("productID")
                         .HasColumnType("int");
 
                     b.Property<int>("quantity")
                         .HasColumnType("int");
-
-                    b.Property<DateTime?>("transactionDate")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("transactionType")
                         .IsRequired()
@@ -174,23 +124,6 @@ namespace Inventory_Management.Migrations
                     b.HasIndex("productID");
 
                     b.ToTable("Transactions");
-
-                    b.HasData(
-                        new
-                        {
-                            transactionID = 1,
-                            productID = 1,
-                            quantity = 5,
-                            transactionDate = new DateTime(2024, 12, 19, 23, 8, 7, 140, DateTimeKind.Local).AddTicks(4694),
-                            transactionType = "Purchase"
-                        },
-                        new
-                        {
-                            transactionID = 2,
-                            productID = 2,
-                            quantity = 2,
-                            transactionType = "Sale"
-                        });
                 });
 
             modelBuilder.Entity("InventoryManagement.ProductEntity", b =>

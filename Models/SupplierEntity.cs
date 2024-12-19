@@ -6,7 +6,7 @@ namespace InventoryManagement
     {
         [Key]
         public int supplierID { get; set; }
-        public string name { get; set; } = "";
+        public string supplierName { get; set; } = "";
         public string? contactInfo { get; set; }
 
         public ICollection<ProductEntity> productEntities { get; set; } = new List<ProductEntity>();
