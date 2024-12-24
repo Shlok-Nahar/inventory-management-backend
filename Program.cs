@@ -9,9 +9,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins", policy =>
     {
-        policy.AllowAnyOrigin()  // Allows all origins
-              .AllowAnyMethod()  // Allows any HTTP method (GET, POST, etc.)
-              .AllowAnyHeader(); // Allows any headers
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod() 
+              .AllowAnyHeader();
     });
 });
 
@@ -21,8 +21,7 @@ builder.Services.AddDbContext<InventoryDbContext>(options =>
         new MySqlServerVersion(new Version(8, 0, 40))
     ));
 
-// Add controllers
-builder.Services.AddControllers();  // Add this line to register controller services
+builder.Services.AddControllers();
 
 // Add authorization services
 builder.Services.AddAuthorization();  
@@ -47,9 +46,9 @@ if (app.Environment.IsDevelopment())
 
 // Use authentication and authorization middleware
 app.UseHttpsRedirection();
-app.UseAuthentication();  // Add this line if you're using authentication
-app.UseAuthorization();   // Ensure this line is here for authorization
+app.UseAuthentication(); 
+app.UseAuthorization();
 
-app.MapControllers();  // Map controller routes
+app.MapControllers();
 
 await app.RunAsync();
