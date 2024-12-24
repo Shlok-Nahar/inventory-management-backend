@@ -48,10 +48,5 @@ namespace InventoryManagement.Services
                 await _context.SaveChangesAsync();
             }
         }
-
-        public Task<CustomerEntity> CreateCustomerAsync(CustomerEntity customer)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
