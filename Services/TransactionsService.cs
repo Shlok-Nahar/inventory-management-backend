@@ -2,24 +2,30 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InventoryManagement.Services
 {
-    public class TransactionService : ITransactionService
+    public class TransactionsService : ITransactionsService
     {
         private readonly InventoryDbContext _context;
 
-        public TransactionService(InventoryDbContext context)
+        public TransactionsService(InventoryDbContext context)
         {
             _context = context;
         }
 
         public async Task<IEnumerable<TransactionEntity>> GetAllTransactionsAsync()
         {
-            return await _context.Transactions.Include(t => t.productEntity).ToListAsync();
+            return await _context.Transactions
+                .Include(t => t.productEntity)
+                .Include(t => t.customerEntity)
+                .Include(t => t.supplierEntity)
+                .ToListAsync();
         }
 
         public async Task<TransactionEntity> GetTransactionByIdAsync(int id)
         {
             var transaction = await _context.Transactions
                 .Include(t => t.productEntity)
+                .Include(t => t.customerEntity)
+                .Include(t => t.supplierEntity)
                 .FirstOrDefaultAsync(t => t.transactionID == id);
             if (transaction == null)
             {
@@ -58,5 +64,23 @@ namespace InventoryManagement.Services
                 .Include(t => t.productEntity)
                 .ToListAsync();
         }
+        public async Task<IEnumerable<TransactionEntity>> GetTransactionsByCustomerIdAsync(int customerId)
+        {
+            return await _context.Transactions
+                .Where(t => t.customerID == customerId)
+                .Include(t => t.customerEntity)
+                .ToListAsync();
+        }
+        public async Task<IEnumerable<TransactionEntity>> GetTransactionsBySupplierIdAsync(int supplierId)
+        {
+            return await _context.Transactions
+                .Where(t => t.supplierID == supplierId)
+                .Include(t => t.supplierEntity)
+                .ToListAsync();
+        }
+    }
+
+    public interface ITransactionsService
+    {
     }
 }

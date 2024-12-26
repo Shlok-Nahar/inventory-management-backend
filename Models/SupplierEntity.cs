@@ -11,5 +11,6 @@ namespace InventoryManagement
         public string? contactInfo { get; set; }
 
         public ICollection<ProductEntity> productEntities { get; set; } = new List<ProductEntity>();
+        public ICollection<TransactionEntity> transactionEntities { get; set; } = new List<TransactionEntity>();
     }
 }

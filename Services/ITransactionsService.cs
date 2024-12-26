@@ -8,5 +8,7 @@ namespace InventoryManagement.Services
         Task UpdateTransactionAsync(TransactionEntity transaction);
         Task DeleteTransactionAsync(int id);
         Task<IEnumerable<TransactionEntity>> GetTransactionsByProductIdAsync(int productId);
+        Task<IEnumerable<TransactionEntity>> GetTransactionsByCustomerIdAsync(int customerId);
+        Task<IEnumerable<TransactionEntity>> GetTransactionsBySupplierIdAsync(int supplierId);
     }
 }

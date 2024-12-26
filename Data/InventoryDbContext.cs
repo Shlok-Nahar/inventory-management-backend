@@ -32,6 +32,20 @@ namespace InventoryManagement
                 .HasForeignKey(t => t.productID)
                 .OnDelete(DeleteBehavior.Restrict);  // Optional: Configure cascading behavior
 
+            // Configuring the relationship between TransactionEntity and CustomerEntity
+            modelBuilder.Entity<TransactionEntity>()
+                .HasOne(t => t.customerEntity)  // A Transaction has one Customer
+                .WithMany(c => c.transactionEntities)  // A Customer has many Transactions
+                .HasForeignKey(t => t.customerID)
+                .OnDelete(DeleteBehavior.Restrict);  // Optional: Configure cascading behavior
+                
+            // Configuring the relationship between TransactionEntity and SupplierEntity
+            modelBuilder.Entity<TransactionEntity>()
+                .HasOne(t => t.supplierEntity)  // A Transaction has one Supplier
+                .WithMany(s => s.transactionEntities)  // A Supplier has many Transactions
+                .HasForeignKey(t => t.supplierID)
+                .OnDelete(DeleteBehavior.Restrict);  // Optional: Configure cascading behavior
+                
             // Configuring the relationship between ProductEntity and CustomerEntity
             modelBuilder.Entity<ProductEntity>()
                 .HasOne(p => p.customerEntity)  // A Product has one Customer
