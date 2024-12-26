@@ -1,6 +1,6 @@
 namespace InventoryManagement.Services
 {
-    public interface ITransactionService
+    public interface ITransactionsService
     {
         Task<IEnumerable<TransactionEntity>> GetAllTransactionsAsync();
         Task<TransactionEntity> GetTransactionByIdAsync(int id);

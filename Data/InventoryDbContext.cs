@@ -45,7 +45,7 @@ namespace InventoryManagement
                 .WithMany(s => s.transactionEntities)  // A Supplier has many Transactions
                 .HasForeignKey(t => t.supplierID)
                 .OnDelete(DeleteBehavior.Restrict);  // Optional: Configure cascading behavior
-                
+
             // Configuring the relationship between ProductEntity and CustomerEntity
             modelBuilder.Entity<ProductEntity>()
                 .HasOne(p => p.customerEntity)  // A Product has one Customer
@@ -64,23 +64,23 @@ namespace InventoryManagement
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<ProductEntity>().HasData(
-                new ProductEntity { productID = 1, productName = "Product A", price = 10.99f, stock = 100, supplierID = 1, customerID = null },
-                new ProductEntity { productID = 2, productName = "Product B", price = 20.49f, stock = 50, supplierID = null, customerID = null },
-                new ProductEntity { productID = 3, productName = "Product C", price = 15.99f, stock = 75, supplierID = null, customerID = 2 }
-            );
+                 new ProductEntity { productID = 1, productName = "Product A", price = 10.99f, stock = 100, supplierID = 1, customerID = null },
+                 new ProductEntity { productID = 2, productName = "Product B", price = 20.49f, stock = 50, supplierID = null, customerID = null },
+                 new ProductEntity { productID = 3, productName = "Product C", price = 15.99f, stock = 75, supplierID = null, customerID = 2 }
+             );
 
             modelBuilder.Entity<CustomerEntity>().HasData(
-                new CustomerEntity { customerID = 1, customerName = "Customer A", contactInfo = "123-456-7890" },
-                new CustomerEntity { customerID = 2, customerName = "Customer B", contactInfo = "" }
-            );
-            modelBuilder.Entity<SupplierEntity>().HasData(
-                new SupplierEntity { supplierID = 1, supplierName = "Supplier A", contactInfo = "987-654-3210" },
-                new SupplierEntity { supplierID = 2, supplierName = "Supplier B", contactInfo = "" }
-            );
-            modelBuilder.Entity<TransactionEntity>().HasData(
-                new TransactionEntity { transactionID = 1, productID = 1, transactionType = "Purchase", quantity = 5, transactionDate = DateTime.Now },
-                new TransactionEntity { transactionID = 2, productID = 2, transactionType = "Sale", quantity = 2, transactionDate = null }
-            );
+                 new CustomerEntity { customerID = 1, customerName = "Customer A", contactInfo = "123-456-7890" },
+                 new CustomerEntity { customerID = 2, customerName = "Customer B", contactInfo = "" }
+             );
+             modelBuilder.Entity<SupplierEntity>().HasData(
+                 new SupplierEntity { supplierID = 1, supplierName = "Supplier A", contactInfo = "987-654-3210" },
+                 new SupplierEntity { supplierID = 2, supplierName = "Supplier B", contactInfo = "" }
+             );
+             modelBuilder.Entity<TransactionEntity>().HasData(
+                 new TransactionEntity { transactionID = 1, productID = 1, transactionType = "Purchase", quantity = 5, transactionDate = DateTime.Now },
+                 new TransactionEntity { transactionID = 2, productID = 2, transactionType = "Sale", quantity = 2, transactionDate = null }
+             );
         }
     }
 }

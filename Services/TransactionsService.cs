@@ -79,8 +79,4 @@ namespace InventoryManagement.Services
                 .ToListAsync();
         }
     }
-
-    public interface ITransactionsService
-    {
-    }
 }

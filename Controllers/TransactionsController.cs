@@ -5,11 +5,11 @@ namespace InventoryManagement.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TransactionController : ControllerBase
+    public class TransactionsController : ControllerBase
     {
         private readonly InventoryDbContext _context;
 
-        public TransactionController(InventoryDbContext context)
+        public TransactionsController(InventoryDbContext context)
         {
             _context = context;
         }
