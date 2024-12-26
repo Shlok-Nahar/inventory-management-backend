@@ -79,10 +79,5 @@ namespace InventoryManagement.Controllers
 
             return NoContent();
         }
-
-        private bool TransactionExists(int id)
-        {
-            return _context.Transactions.Any(t => t.transactionID == id);
-        }
     }
 }
