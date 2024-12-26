@@ -10,21 +10,12 @@ namespace InventoryManagement
 
         [ForeignKey("ProductEntity")]
         public int productID { get; set; }
-        
-        [ForeignKey("ProductEntity")]
-        public string? productName { get; set; }
 
         [ForeignKey("CustomerEntity")]
         public int? customerID { get; set; }
-        
-        [ForeignKey("CustomerEntity")]
-        public string? customerName { get; set; }
 
         [ForeignKey("SupplierEntity")]
         public int? supplierID { get; set; }
-        
-        [ForeignKey("SupplierEntity")]
-        public string? supplierName { get; set; }
         public string? transactionType { get; set; }
         public int quantity { get; set; }
         public DateTime? transactionDate { get; set; }
